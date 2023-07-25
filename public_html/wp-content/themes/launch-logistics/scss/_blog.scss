@@ -1,0 +1,28 @@
+/*------------------------- blog page start -----------------------*/
+.blog-page{
+    .story-wraper{
+        .row{
+            [class*="col-"]{
+                &:nth-child(-n + 2){
+                    width: 50%;
+                    .story-image{
+                        height: 530px;
+                        @include w1600{
+                            height: calc(530px - 80px);
+                        }
+                        @include w1400{
+                            height: calc(530px - 80px*2);
+                        }
+                        @include w1199{
+                            height: calc(530px - 80px*3);
+                        }
+                    }
+                    @include w575{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+/*------------------------- blog page end -----------------------*/

@@ -1,0 +1,134 @@
+/*========================= career page start ======================*/
+.career-item-wraper{
+    margin-bottom: 90px;
+    @include w1600{
+        margin-bottom: calc(90px - 15px);
+    }
+    @include w1400{
+        margin-bottom: calc(90px - 15px*2);
+    }
+    @include w1199{
+        margin-bottom: calc(90px - 15px*3);
+    }
+    @include w991{
+        margin-bottom: calc(90px - 15px*4);
+    }
+    @include w575{
+        margin-bottom: calc(90px - 15px*5);
+    }
+}
+.career-item{
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 15px;
+    background-color: #fff;
+    padding: 25px 25px 15px 25px;
+    margin-bottom: 36px;
+    box-shadow: 0px 2px 9px 0px rgba(0,0,0,0.1);
+    @include w1400{
+        margin-bottom: 30px;
+    }
+    @include w1199{
+        margin-bottom: 25px;
+    }
+    @include w575{
+        padding: 20px 20px 15px 20px;
+    }
+    h3{
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 22px;
+        color: #e64b3d;
+        @include w1600{
+            font-size: 22px;
+        }
+        @include w1199{
+            font-size: 21px;
+            margin-bottom: 20px;
+        }
+        @include w767{
+            font-size: 20px;
+            margin-bottom: 18px;
+        }
+    }
+}
+.ex-va-item, .date-item{
+    margin-bottom: 12px;
+    font-size: 15px;
+    position: relative;
+    padding-left: 22px;
+    margin-right: 20px;
+    color: #536777;
+    @include w1600{
+        font-size: 14px;
+    }
+    span{
+        position: absolute;
+        left: 0;
+    }
+    a{
+        color: #536777;
+    }
+}
+.date-wraper{
+    margin-top: 18px;
+    @include w1600{
+        margin-top: 15px;
+    }
+}
+.date-item{
+    padding: 5px 12px;
+    padding-left: 36px;
+    border-radius: 5px;
+    font-size: 14px;
+    @include w1600{
+        font-size: 13px;
+    }
+    @include w575{
+        font-size: 12px;
+        padding: 5px 10px;
+        padding-left: 32px;
+        margin-right: 12px;
+    }
+    span{
+        left: 12px;
+    }
+}
+.posted-date{
+    background-color: #d7f2e3;
+}
+.exp-date{
+    background-color: #ffeeec;
+}
+.salary{
+    font-size: 28px;
+    font-weight: 700;
+    text-align: right;
+    position: relative;
+    width: fit-content;
+    margin: 0 0 0 auto;
+    padding-left: 0;
+    @include w1600{
+        font-size: 24px;
+    }
+    @include w767{
+        margin: 5px 0 0 0;
+        text-align: left;
+        font-size: 22px;
+    }
+    span{
+        font-size: 13px;
+        color: #536777;
+        display: block;
+        font-weight: 300;
+        @include w767{
+            font-size: 12px;
+        }
+    }
+}
+.money-icon{
+    position: absolute;
+    left: 0;
+    font-size: 15px;
+    color: #536777;
+}
+/*========================= career page end ======================*/

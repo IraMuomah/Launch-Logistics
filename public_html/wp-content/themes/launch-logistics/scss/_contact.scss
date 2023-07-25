@@ -1,0 +1,181 @@
+/*--------------------------- contact page start ----------------------*/
+.contact-page-wraper{
+    padding-top: 116px;
+    padding-bottom: 78px;
+    @include w1600{
+        padding-top: calc(116px - 19px);
+        padding-bottom: calc(78px - 13px);
+    }
+    @include w1400{
+        padding-top: calc(116px - 19px*2);
+        padding-bottom: calc(78px - 13px*2);
+    }
+    @include w1199{
+        padding-top: calc(116px - 19px*3);
+        padding-bottom: calc(78px - 13px*3);
+    }
+    @include w991{
+        padding-top: calc(116px - 19px*4);
+        padding-bottom: calc(78px - 13px*4);
+    }
+    .section-head{
+        margin-bottom: 52px;
+        @include w1600{
+            margin-bottom: calc(52px - 8px);
+        }
+        @include w1400{
+            margin-bottom: calc(52px - 8px*2);
+        }
+        @include w1199{
+            margin-bottom: calc(52px - 8px*3);
+        }
+        @include w767{
+            text-align: center;
+            margin-bottom: calc(52px - 8px*4);
+        }
+        @include w575{
+            margin-bottom: calc(52px - 8px*4.5);
+        }
+    }
+}
+.map-container{
+    height: 556px;
+    border: 0.5px solid #A1A1A1;
+    @include w1600{
+        height: calc(556px - 90px);
+    }
+    @include w1400{
+        height: calc(556px - 90px*2);
+    }
+    @include w1199{
+        height: calc(556px - 90px*3);
+    }
+    iframe{
+        filter: grayscale(100);
+        height: 100%;
+        width: 100%;
+    }
+}
+.location-item-container{
+    padding: 48px 0 0 0;
+    @include w1600{
+        padding: calc(48px - 8px) 0 0 0;
+    }
+    @include w1400{
+        padding: calc(48px - 8px*2) 0 0 0;
+    }
+    .row{
+        [class*="col-"]{
+            margin-bottom: 20px;
+        }
+    }
+}
+.location-item{
+    max-width: 243px;
+    h3{
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 1;
+        color: #A1A1A1;
+        margin-bottom: 18px;
+        @include w1600{
+            font-size: calc(22px - 2px);
+            margin-bottom: 16px;
+        }
+        @include w1400{
+            font-size: calc(22px - 2px*2);
+            margin-bottom: 15px;
+        }
+        @include w1199{
+            font-size: calc(22px - 2px*2);
+        }
+    }
+    p{
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 23px;
+        color: #A1A1A1;
+        margin-bottom: 19px;
+        @include w1600{
+            margin-bottom: calc(19px - 2px);
+        }
+        @include w1400{
+            font-size: 14px;
+        }
+        @include w991{
+            margin-bottom: calc(19px - 2px*2);
+        }
+    }
+    a{
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 28px;
+        text-decoration-line: underline;
+        color: $theme-red;
+        display: block;
+        position: relative;
+        padding-left: 20px;
+        @include w1400{
+            font-size: 14px;
+        }
+        span{
+            position: absolute;
+            left: 0;
+        }
+    }
+    .email-id{
+        margin-top: 19px;
+        @include w1600{
+            margin-top: calc(19px - 3px);
+        }
+    }
+}
+.contact-nav-pill-container{
+    .nav{
+        @include w767{
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+    }
+    .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+        background-color: transparent;
+        @include w1600{
+            background-color: $theme-red;
+            color: #fff;
+        }
+    }
+    .nav-pills .nav-link{
+        padding: 20px 0;
+        border-radius: 0;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 1;
+        color: #A1A1A1;
+        text-align: left;
+        border-bottom: 0.5px solid $theme-red;
+        @include w1600{
+            padding: calc(20px - 2px) 0;
+            font-size: calc(20px - 2px);
+        }
+        @include w1400{
+            padding: calc(20px - 2px*2) 0;
+            font-size: calc(20px - 2px*2);
+        }
+        @include w1199{
+            padding: calc(20px - 2px*3) 0;
+            font-size: calc(20px - 2px*3);
+        }
+        @include w991{
+            padding: calc(20px - 2px*4) 0;
+        }
+        @include w767{
+            margin-right: 23px;
+            padding: 10px 12px;
+            margin-top: 15px;
+        }
+    }
+    .nav-pills .nav-link:last-child{
+        margin-right: 0;
+    }
+}
+/*--------------------------- contact page end ----------------------*/

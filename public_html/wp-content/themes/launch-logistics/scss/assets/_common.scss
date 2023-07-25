@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/*----------------- variables --------------*/
+$default-font-size: 15px;
+$theme-red: #E64A3C;
+$light-red: #FFF8F8;
+$light-black : #6D6C6C;
+$font-60: 60px;
+$font-50: 50px;
+$font-48: 48px;
+$font-22: 22px;
+$font-18: 18px;
+/*----------------- // variables --------------*/
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+ul, h1, h2, h3, h4, h5, h6, p{
+    margin: 0;
+    padding: 0;
+}
+p{
+    font-size: $default-font-size;
+    @include w1400{
+        font-size: $default-font-size - 1;
+    }
+}
+a{
+    text-decoration: none;
+}
+main{
+    overflow: hidden;
+}
+section{
+    overflow: hidden;
+}
+.page-margin{
+    margin-top: 92px;
+    @include w1600{
+        margin-top: 81px;
+    }
+    @include w1400{
+        margin-top: 70px;
+    }
+    @include w1199{
+        margin-top: 58px;
+    }
+    @include w991{
+        margin-top: 61px;
+    }
+}

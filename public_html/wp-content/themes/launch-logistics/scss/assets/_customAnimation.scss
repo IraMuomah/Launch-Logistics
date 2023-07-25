@@ -1,0 +1,108 @@
+.btn-slide-up{
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+    span{
+        transition: 0.4s all;
+        transition-delay: 0.2s;
+    }
+    &::before{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: $theme-red;
+        content: '';
+        transition: all 0.3s;
+        height: 100%;
+        width: 0;
+    }
+    &:hover{
+        border-color: $theme-red;
+        span{
+            color: #fff;
+        }
+        &::before{
+            // animation: btn-slide-up-anim 0.8s ease forwards;
+            animation: ani507 0.6s forwards;
+        }
+    }
+}
+@keyframes ani507 {
+    10% {
+      width: 0;
+      transform: rotateZ(-45deg) translate(-100%, -50%);
+    }
+    20% {
+      width: 0;
+      transform: rotateZ(0) translate(-100%, 85%);
+    }
+    60% {
+      width: 100%;
+      transform: rotateZ(0) translate(0, 85%);
+    }
+    100% {
+      width: 100%;
+      transform: rotateZ(0) translate(0, 0);
+    }
+  }
+@keyframes btn-slide-up-anim{
+    0%{
+        width: 0;
+        height: 3px;
+    }
+    50%{
+        width: 100%;
+        height: 3px;
+    }
+    100%{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.section-head .char{
+    opacity: 0;
+}
+.section-head .char.start {
+    animation: slide-in .5s cubic-bezier(.3, 0, .7, 1) both;
+    animation-delay: calc(50ms * var(--char-index));
+    opacity: 1;
+}
+@keyframes slide-in {
+    from {
+      transform: scale(0.4) translateX(80%);
+      opacity: 0;
+    }
+}
+
+.banner-text .word.start {
+    animation: word-anim .7s cubic-bezier(.3, 0, .9, 1) both;
+    animation-delay: calc(50ms * var(--char-index));
+}
+@keyframes word-anim {
+    from {
+      transform: translateY(80%);
+      opacity: 0;
+    }
+}
+
+
+@keyframes scale-anim{
+    0%{
+        transform: scaleX(0) translateY(0);
+        transform-origin: right;
+    }
+    33%{
+        transform: scaleX(1) translateY(0);
+        transform-origin: right;
+    }
+    66%{
+        transform: scaleX(1) translateY(0);
+        transform-origin: left;
+    }
+    100%{
+        transform: scaleX(0) translateY(0);
+        transform-origin: left;
+    }
+   
+}

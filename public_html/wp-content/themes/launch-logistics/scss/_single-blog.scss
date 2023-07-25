@@ -1,0 +1,105 @@
+/*---------------------------- single blog start ---------------------*/
+.single-blog-container{
+    border-bottom: 0.3px solid #e64a3c54;
+    margin-bottom: 102px;
+    @include w1600{
+        margin-bottom: calc(102px - 15px);
+    }
+    @include w1400{
+        margin-bottom: calc(102px - 15px*2);
+    }
+    @include w1199{
+        margin-bottom: calc(102px - 15px*3);
+    }
+    @include w991{
+        margin-bottom: calc(102px - 15px*4);
+    }
+    @include w767{
+        margin-bottom: calc(102px - 15px*5);
+    }
+    .section-head{
+        margin: auto;
+        font-weight: 700;
+        margin-bottom: 25px;
+        max-width: 1032px;
+        text-align: center;
+        @include w1600{
+            margin-bottom: calc(25px - 4px);
+        }
+    }
+}
+.blog-date{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.4;
+    text-align: center;
+    color: #424242;
+    margin-bottom: 38px;
+    @include w1600{
+        font-size: calc(18px - 2px);
+        margin-bottom: calc(38px - 6px);
+    }
+    @include w1400{
+        font-size: calc(18px - 2px*2);
+        margin-bottom: calc(38px - 6px*2);
+    }
+}
+.single-blog-container{
+    img{
+        width: 100%;
+        max-height: 633px;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+.blog-content{
+    max-width: 1266px;
+    margin: auto;
+    padding: 35px 15px 85px 15px;
+    @include w1600{
+        padding: calc(35px - 5px) 15px calc(85px - 14px) 15px;
+    }
+    @include w1400{
+        padding: calc(35px - 5px*2) 15px calc(85px - 14px*2) 15px;
+    }
+    @include w1199{
+        padding: calc(35px - 5px*3) 15px calc(85px - 14px*3) 15px;
+    }
+    @include w575{
+        padding: 0px 0px calc(85px - 14px*4) 0px;
+    }
+    p{
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 1.8;
+        color: #6D6C6C;
+        margin-top: 36px;
+        @include w1600{
+            font-size: calc(18px - 2px);
+            margin-top: calc(36px - 6px);
+        }
+        @include w1400{
+            font-size: calc(18px - 2px*2);
+            margin-top: calc(36px - 6px*2);
+        }
+        @include w1199{
+            margin-top: calc(36px - 6px*3);
+        }
+    }
+    img{
+        margin-top: 60px;
+        @include w1600{
+            margin-top: calc(60px - 10px);
+        }
+        @include w1400{
+            margin-top: calc(60px - 10px*2);
+        }
+        @include w1199{
+            margin-top: calc(60px - 10px*3);
+        }
+        @include w991{
+            margin-top: calc(60px - 10px*4);
+        }
+    }
+}
+/*---------------------------- single blog end ---------------------*/

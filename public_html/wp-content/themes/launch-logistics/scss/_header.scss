@@ -1,0 +1,355 @@
+/*-------------------------- header start -------------------*/
+header{
+    padding: 0 65px;
+    background-color: #fff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: 0.3s;
+    z-index: 9;
+    // box-shadow: 0px 0px 7px 0 rgba(0,0,0,0.1);
+    @include w1600{
+        padding: 0 calc(65px - 10px);
+    }
+    @include w1400{
+        padding: 0 calc(65px - 10px*2);
+    }
+    @include w1199{
+        padding: 0 calc(65px - 10px*3);
+    }
+    @include w991{
+        padding: 10px calc(65px - 10px*3);
+    }
+    @include w575{
+        padding: 10px calc(65px - 10px*4);
+    }
+}
+.nav-up {
+    top: -120px;
+  }
+.nav-down{
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.1);
+}
+.logo{
+    img{
+        width: 131px;
+        // @include w1600{
+        //     width: calc(131px - 20px);
+        // }
+        @include w1199{
+            width: calc(131px - 20px*1.2);
+        }
+        @include w991{
+            width: calc(131px - 20px*1);
+        }
+    }
+}
+.header-wraper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.menu-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // max-width: 1250px;
+    .menu-item-wraper{
+        @include w991{
+            position: fixed;
+            width: 300px;
+            background-color: $theme-red;
+            box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.1);
+            top: 0;
+            right: -100%;
+            height: 100%;
+            padding: 15px 30px;
+            z-index: 3;
+            transition: 0.4s ease-in-out;
+        }
+        &.active{
+            right: 0;
+        }
+        a{
+            color: #000;
+            font-weight: 400;
+            @include w991{
+                color: #fff;
+                font-size: 15px;
+            }
+        }
+        ul{
+            display: flex;
+            list-style-type: none;
+            // margin-right: 280px;
+            // margin-right: 14vw;
+            // @include w1600{
+            //     margin-right: calc(14vw - 7vw);
+            // }
+            // @include w1400{
+            //     margin-right: 60px;
+            // }
+            // @include w1199{
+            //     margin-right: 30px;
+            // }
+            @include w991{
+                display: block;
+                margin-right: 0;
+            }
+            li{
+                margin-right: 50px;
+                padding: 34px 0 38px;
+                font-size: 14px;
+                @include w1600{
+                    margin-right: calc(50px - 8px);
+                    padding: calc(34px - 5px) 0 calc(38px - 6px);
+                }
+                @include w1400{
+                    margin-right: calc(50px - 8px*2);
+                    padding: calc(34px - 5px*2) 0 calc(38px - 6px*2);
+                }
+                @include w1199{
+                    margin-right: calc(50px - 8px*3);
+                    padding: calc(34px - 5px*3) 0 calc(38px - 6px*3);
+                    font-size: 13px;
+                }
+                @include w991{
+                    margin-right: 0;
+                    padding: 10px 0;
+                    border-top: 1px solid rgba(255,255,255,0.4);
+                }
+                &:first-child{
+                    border: none;
+                }
+                &:last-child{
+                    margin-right: 0;
+                    border: none;
+                }
+            }
+        }
+    }
+}
+.get-a-quote{
+    @include flex-center;
+    background-color: $theme-red;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    height: 43px;
+    width: 156px;
+    line-height: 1;
+    text-transform: uppercase;
+    @include w1600{
+        font-size: calc(18px - 2px);
+        width: calc(156px - 26px);
+        height: calc(43px - 7px);
+    }
+    @include w1199{
+        font-size: calc(18px - 2px*2);
+        width: calc(156px - 26px*2);
+        height: calc(43px - 7px*2);
+    }
+    @include w991{
+        background-color: #fff;
+        color: $theme-red !important;
+        width: calc(156px - 26px);
+        height: calc(43px - 7px);
+        margin-top: 20px;
+    }
+    &:hover{
+        background-color: #df3e30;
+        color: #fff;
+        @include w991{
+            background-color: #000;
+            color: #fff !important;
+        }
+    }
+}
+.country-item{
+    position: relative;
+    padding-left: 27px;
+    font-size: 14px;
+    span{
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        left: 0;
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            object-position: cover;
+        }
+    }
+    &:hover{
+        background-color: rgb(243, 243, 243);
+    }
+}
+.country-choose{
+    padding-left: 39px;
+    position: relative;
+    @include w1600{
+        padding-left: calc(40px - 6px);
+    }
+    @include w1199{
+        padding-left: calc(40px - 6px*3);
+    }
+    @include w991{
+        padding-left: 0;
+        position: relative;
+        right: 60px;
+    }
+    @include w575{
+        right: 50px;
+    }
+    ul{
+        list-style-type: none;
+    }
+}
+.header-right{
+    display: flex;
+    align-items: center;
+}
+.country-box{
+    position: absolute;
+    opacity: 0;
+    z-index: 2;
+    top: 36px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 2px;
+    width: 150px;
+    background-color: #fff;
+    right: 0;
+    transition: 0.3s;
+    transform: translateY(20px);
+    li{
+        padding: 7px 10px 7px 38px;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        cursor: pointer;
+    }
+    span{
+        left: 8px;
+    }
+    &.active{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.current{
+    position: relative;
+    padding-right: 24px;
+    @include w575{
+        padding-right: 19px;
+    }
+    cursor: pointer;
+    i{
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    &:hover{
+        background-color: transparent;
+    }
+}
+
+.hand-burger-box{
+    position: absolute;
+    width: 25px;
+    height: 15px;
+    right: 0;
+    cursor: pointer;
+    .hand-burger{
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #000;
+        &.one{
+            top: 0;
+        }
+        &.two{
+            top: 6px;
+        }
+        &.three{
+            top: 12px;
+        }
+    }
+}
+.backdrop{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255,255,255,0.8);
+    z-index: 2;
+    display: none;
+}
+.menu-item-has-children{
+    position: relative;
+    &:hover{
+        .sub-menu{
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+            @include w991{
+                max-height: 200px;
+            }
+        }
+    }
+    .sub-menu{
+        position: absolute;
+        width: 186px;
+        background-color: #fff;
+        display: block !important;
+        top: 93px;
+        border: 1px solid rgba(0,0,0,0.1);
+        border-radius: 2px;
+        overflow: hidden;
+        transform: translateY(40px);
+        transition: 0.3s ease;
+        opacity: 0;
+        visibility: hidden;
+        @include w1600{
+            top: 82px;
+        }
+        @include w1400{
+            top: 70px;
+        }
+        @include w1199{
+            top: 60px;
+        }
+        @include w991{
+            position: relative;
+            background-color: transparent;
+            border: none;
+            top: 0;
+            max-height: 0;
+            margin-right: 0 !important;
+            width: 100%;
+            padding-left: 15px;
+        }
+        li{
+            margin: 0 !important;
+            padding: 10px 15px !important;
+            border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+            transition: 0.3s;
+            @include w991{
+                border-bottom: 1px solid rgba(255,255,255,0.4) !important;
+                border-top: none !important;
+                &:first-child{
+                    padding-top: 17px !important;
+                }
+            }
+            &:hover{
+                padding-left: 20px !important;
+            }
+            &:last-child{
+                border-bottom: none !important;
+            }
+        }
+    }
+}
+/*-------------------------- header end -------------------*/

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Quote</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;language=en&amp;key=AIzaSyCWbHt9QraFjrNcBM8F8FtXVOSdprebieo"></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;language=en&amp;key=AIzaSyD61CGRsenVDXkRMrBzxQnVTtL7EZz0k_c"></script> -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;language=en&amp;key=AIzaSyBJiQZyvPNERRKjmN4nnsrA6WFQQTnwYKA"></script> -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;language=en&amp;key=AIzaSyBHJxzPHD_egYnhxntqcvfem35YRjruzAg"></script> -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;language=en&amp;key=AIzaSyAihwKNj-07whXNy0_nKDqkxN4QxCA-3uI"></script> -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;language=en&amp;key=AIzaSyCuTilAfnGfkZtIx0T3qf-eOmWZ_N2LpoY"></script> -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;language=en&amp;key="></script> -->
+ 
+    <style>
+        .wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+    
+        form {
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .form-control:focus{ 
+            border-color: #ffd250;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 153, 0, 0.651);
+        }   
+        .map {
+            height: 700px;
+        }
+    
+        .data-box {
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+        }
+    
+        .box {
+            padding: 6px 10px;
+            margin: 3px 0;
+            background: #159;
+            color: #fff;
+            min-height: 36px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+            <div class="container bg-light rounded-4 pt-4 mt-4 pb-4 mb-4">
+                <div class="row text-center p-2 m-2">
+                    <h2 style="color: orangered;">Get An Estimate</h2>
+                    <p>
+                        Esteemed customers, to get a price estimate, kindly complete the form provided below. Once the form has been filled out and submitted, you will be provided with an Estimated Bill.
+                    </p>
+                </div>
+                <div class="row p-2 m-2">
+                    <div class="col-sm-6">
+                        <form action="!" id="formDestination">
+                            <div class="form-group">
+                                <label><h6>FROM: </h6></label>
+                                <input type="text" id="fromPlaces" class="form-control" placeholder="Enter a location" value="" />
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label><h6>TO: </h6></label>
+                                <input type="text" id="toPlaces" class="form-control" placeholder="Enter a location" value="" />
+                            </div>
+                            <br>
+                            <input type="submit" value="Calculate" class="btn btn-dark" id="submitDestination">
+                        </form>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="data-box row">
+                            <div class=" col-12">
+                                <label for="result"><h6>Estimated Bill</h6></label>
+                                <div id="result" class="box bg-secondary"></div>
+                            </div>
+                            <div class="col-6">
+                                <label for="resultDistance"><h6>Distance</h6></label>
+                                <div id="resultDistance" class="box bg-secondary"></div>
+                            </div>
+                            <div class="col-6">
+                                <label for="resultDuration"><h6>Duration</h6></label>
+                                <div id="resultDuration" class="box bg-secondary"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row p-2 m-2">
+                    <div class="map" id="map"></div>
+                </div>
+                
+                
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+    <script>
+        window.addEventListener('load', function () {
+            let myLatLng = { lat: 6.5244, lng: 3.3792 };
+
+            const map = new google.maps.Map(document.getElementById("map"),
+                {
+                    mapTypeControl: false,
+                    center: myLatLng,
+                    zoom: 13,
+                }
+            );
+
+            let inputFromPlace = document.getElementById('fromPlaces');
+            let inputToPlace = document.getElementById('toPlaces');
+
+            const options = {
+                componentRestrictions: { country: "ng" },
+                fields: ["address_components", "geometry"],
+                types: ["address"],
+            }
+
+            const autocompleteFromField = new google.maps.places.Autocomplete(inputFromPlace, options);
+            const autocompleteToField = new google.maps.places.Autocomplete(inputToPlace, options);
+
+            inputFromPlace.focus();
+
+            let resultField = document.getElementById('result');
+            let resultFieldDistance = document.getElementById('resultDistance');
+            let resultFieldDuration = document.getElementById('resultDuration');
+
+            let form = document.getElementById('formDestination');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                if (inputFromPlace.value.trim() !== "" && inputToPlace.value.trim() !== "") {
+                    calcRoute();
+                }
+            });
+
+            let directionsService = new google.maps.DirectionsService();
+
+            let directionsRenderer = new google.maps.DirectionsRenderer();
+            directionsRenderer.setMap(map);
+
+            function calcRoute() {
+                let origin = inputFromPlace.value;
+                let destination = inputToPlace.value;
+                
+
+                let request = {
+                    origin: origin,
+                    destination: destination,
+                    travelMode: google.maps.TravelMode.TWO_WHEELER,
+                    // travelMode: google.maps.TravelMode.DRIVING,
+                    // travelMode: google.maps.TravelMode.WALKING,
+                    unitSystem: google.maps.UnitSystem.metric
+                }
+
+                directionsService.route(request, (result, status) => {
+                    if (status === google.maps.DirectionsStatus.OK) {
+                        
+                        resultFieldDistance.innerHTML = result.routes[0].legs[0].distance.text + " (" + result.routes[0].legs[0].distance.value + " meters)";
+                        resultFieldDuration.innerHTML = result.routes[0].legs[0].duration.text + " (" + result.routes[0].legs[0].duration.value + " seconds)";
+                        let finalresult = (result.routes[0].legs[0].distance.value*0.05)+(result.routes[0].legs[0].duration.value*0.3) ;
+                        const NGN = new Intl.NumberFormat(
+                            'en-NG', { style: 'currency', currency: 'NGN' }
+                        );
+                        resultField.innerHTML = NGN.format(finalresult);
+
+                        directionsRenderer.setDirections(result);
+                    } else {
+                        directionsRenderer.setDirections({ routes: [] })
+
+                        map.setCenter(myLatLng);
+
+                        resultField.innerHTML = "ERROR";
+                    }
+                });
+            }
+        })
+
+
+    </script>
+</body>
+</html>

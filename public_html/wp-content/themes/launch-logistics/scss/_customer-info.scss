@@ -1,0 +1,84 @@
+/*==================================== customer info start ==========================*/
+.info-header{
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 15px;
+    padding: 20px 20px 20px 120px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    span{
+        position: absolute;
+        width: 100px;
+        height: 100%;
+        background-color: #E64A3C;
+        color: #fff;
+        font-size: 50px;
+        left: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    p{
+        font-size: 15px;
+        line-height: 1.7;
+        @include w1600{
+            font-size: 14px;
+        }
+    }
+    .info-heading{
+        font-weight: 600;
+        font-size: 22px;
+        margin-bottom: 10px;
+        color: #E64A3C;
+        @include w1600{
+            font-size: 20px;
+        }
+        @include w575{
+            font-size: 19px;
+        }
+    }
+}
+
+.customer-info-table{
+    margin: 40px 0 60px 0;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    [class*='col-']{
+        padding: 0;
+    }
+    @include w1600{
+        margin: calc(40px - 6px) 0 calc(60px - 10px) 0;
+    }
+    @include w1400{
+        margin: calc(40px - 6px*2) 0 calc(60px - 10px*2) 0;
+    }
+}
+.customer-info-table-item{
+    ul{
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        li{
+            position: relative;
+            padding: 8px 20px;
+            background-color: #fbeeee;
+            font-size: 15px;
+            width: 50%;
+            @include w1600{
+                font-size: 14px;
+            }
+            @include w991{
+                width: 100%;
+            }
+            span{
+                margin-right: 8px;
+                color: #898989;
+            }
+            &:nth-child(2n+2){
+                background-color: #fff;
+            }
+        }
+    }
+}
