@@ -751,6 +751,7 @@
       };
     </script>
 
+    <!-- pre loader -->
     <div id="preloader">
       <div class="loader">
         <!-- <marquee behavior="scroll" direction="right" scrollamount="12">
@@ -759,7 +760,7 @@
       </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal 1-->
     <div class="modal text-dark fade" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -777,14 +778,93 @@
                             <div class="col input-group mt-2" >
                                 <br> <br>
                                 <span>
-                                    <div class="input-group ">
-                                        <span class="input-group-text ">Tracking Number</span>
-                                        <input type="number" id="trackingNumber" aria-label="trackingNumber" maxlength="16" class="form-control" value="" placeholder="1234-5678-9098-7654">
-                                        &nbsp; 
-                                        <i class="tooltip-test tooltip-bg-dark tooltip-text-dark" title="Input your 16 digit tracking number">&#x1F6C8;</i>
+                                  <label for="trackingNumber" class="form-label">Tracking Number</label>
+                                    <div class="input-group mb-3">
+                                      <input type="number" id="trackingNumber" class="form-control" aria-label="trackingNumber" placeholder="1234-5678-9098-7654" min="1000000000000000" max="9999999999999999">   <!-- html doest respect type="number" so i had to take out maxlength="16" and improvise with max and min-->
+                                      <div class="input-group-append">
+                                        <span class="input-group-text ">
+                                          <i class="tooltip-test tooltip-bg-dark tooltip-text-dark  ||  bi bi-info-circle-fill" title="Input your 16 digit tracking number"></i>
+                                        </span>
+                                      </div>
+                                      
+                                      <!-- &nbsp;  -->
                                     </div> 
                                 </span>
                                 <br> <br>
+                            </div>
+                        </section>
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <input   class="btn btn-sm btn-secondary" type="reset"  value="Clear"></input>
+                    <input type="reset" class="close  btn btn-sm btn-dark"  value="Close" data-bs-dismiss="modal" aria-label="Close"></input>
+                    <button type="submit" class="btn btn-sm btn-primary"  > Track</button>      <!-- data-bs-toggle="popover" data-bs-title="Oops! Incorrect Input" data-bs-content="Please check the tracking number you inputed and try again" -->
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="modal text-dark fade" id="logInModal" tabindex="-1" role="dialog"
+        aria-labelledby="logInModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-xl " > <!-- removed these => .modal-dialog-centered  || role="document" || modal-fullscreen-->
+            <div class="modal-content">
+                <form  class="form">
+                <div class="modal-header d-flex justify-content-between">    
+                    <span type="button" class="bi bi-arrow-left "  data-bs-dismiss="modal" aria-label="Close" aria-hidden="true"> </span>
+                    <h5 class="modal-title w-100 text-center" id="logInModalLongTitle">LOG IN / SIGN IN</h5> <!--  i added => w-100 text-center to center the tittle   -->
+                    <button type="button" class="btn-close "  data-bs-dismiss="modal" aria-label="Close" aria-hidden="true"> </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <section class="row m-0 p-0">
+                            <div class="col mt-0" >
+                                
+                                
+                                <div class="d-flex justify-content-center align-items-center">
+                                  <div class="container">
+                                    <div class="row d-flex justify-content-center">
+                                      <div class="col-12 col-md-8 col-lg-6">
+                                        <div class="border border-3 border-warning"></div>
+                                        <div class="card bg-white shadow-lg">
+                                          <div class="card-body p-5">
+                                            <div class="mb-3 mt-md-4">    <!-- changed from a 2nd form to a div -->
+                                              <h2 class="fw-bold mb-2 text-uppercase ">
+                                                <div class="logo">
+                                                  <a href="#" ><img src="../images/LL_logo_white-removebg-preview.png" alt="" /></a>
+                                                </div>
+                                              </h2>
+                                              <p class=" mb-5">Please enter your login and password!</p>
+                                              <div class="mb-3">
+                                                <label for="email" class="form-label ">Email address</label>
+                                                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                                              </div>
+                                              <div class="mb-3">
+                                                <label for="password" class="form-label ">Password</label>
+                                                <input type="password" class="form-control" id="password" placeholder="*******">
+                                              </div>
+                                              <p class="small"><a class="text-primary" href="#">Forgot password?</a></p>
+                                              <div class="d-grid">
+                                                <button class="btn btn-dark" type="submit">Login</button>   <!-- btn-outline-dark -->
+                                              </div>
+                                            </div>
+                                            <div>
+                                              <p class="mb-0  text-center">
+                                                Don't have an account? 
+                                                <a href="#" class="text-primary fw-bold">Sign Up</a>
+                                              </p>
+                                            </div>
+                                
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                
                             </div>
                         </section>
                     </div>
@@ -792,8 +872,8 @@
                 </div>
                 <div class="modal-footer">
                     <input   class="btn btn-sm btn-secondary" type="reset"  value="Clear"></input>
-                    <input type="reset" class="close  btn btn-sm btn-dark"  value="Close" data-bs-dismiss="modal" aria-label="Close"></input>
-                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="popover" data-bs-title="Oops! Incorrect Input" data-bs-content="Please check the tracking number you inputed and try again " > Track</button>
+                    <input type="reset" class="close  btn btn-sm btn-danger"  value="Close" data-bs-dismiss="modal" aria-label="Close"></input>
+                    <button type="submit" class="btn btn-sm btn-success"> Done </button>
                 </div>
                 </form>
             </div>
@@ -888,7 +968,7 @@
             </div>
             <div class="header-right">
  
-              <a href="#" class="my-abc d-lg-flex bg-warning rounded-pill"
+              <a href="" class="my-abc d-lg-flex bg-warning rounded-pill" data-bs-toggle="modal" data-bs-target="#logInModal"
                 >Log in</a
               >
 
